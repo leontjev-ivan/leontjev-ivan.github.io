@@ -1,0 +1,2 @@
+Golos Text, Oswald: SIL Open Font License 1.1 (https://openfontlicense.org).
+Files are the cyrillic and latin subsets served by Google Fonts, stored locally so the page loads no third-party fonts.
