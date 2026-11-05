@@ -276,6 +276,8 @@
   .case-res { margin: -6px 0 18px; padding-left: 12px; border-left: 3px solid var(--or); font-weight: 600; font-size: 16px; color: var(--fg); }
   .case-link { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 10px; font-weight: 600; color: var(--fg); text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 4px; }
   .case-link::after { content: " →"; }
+  .demo-link { margin: 18px 0 0; }
+  .demo-note { margin-top: 8px; font-size: 15px; line-height: 1.45; color: var(--muted); max-width: 46ch; }
   .case-st { display: inline-block; margin-bottom: 14px; padding: 5px 12px; font: 500 12px/1.4 var(--fh); letter-spacing: .12em; text-transform: uppercase; background: var(--ink); color: var(--yl); }
 
   /* ---------- process ---------- */
@@ -534,6 +536,7 @@
           <li>Заявка владельцу, админка, выгрузка в Excel</li>
         </ul>
         <ul class="chips"><li>aiogram 3</li><li>SQLite</li><li>Docker</li><li>pytest</li></ul>
+        <a class="case-link demo-link" href="https://github.com/leontjev-ivan/bot-vizitka">Код на GitHub</a>
       </div>
 
       <div class="bot-win rv" style="--d:1">
@@ -595,6 +598,8 @@
       <div>
         <h3 class="demo-h">Каталог с корзиной и заявкой</h3>
         <ul class="chips" style="--ac: var(--vi)"><li>Vue 3</li><li>FastAPI</li><li>Telegram WebApp</li></ul>
+        <a class="case-link demo-link" href="https://github.com/leontjev-ivan/miniapp-katalog">Код на GitHub</a>
+        <p class="demo-note">Живой страницы нет: каталог и заявки отдаёт свой сервер на FastAPI, запуск в Docker по инструкции в репозитории.</p>
       </div>
       <ul class="tri-list">
         <li>Категории, поиск, карточка товара</li>
@@ -643,6 +648,7 @@
           <p class="live">Выгрузка, 10 строк</p>
           <h3 class="demo-h">Парсер каталога в Excel</h3>
           <ul class="chips" style="--ac: var(--yl)"><li>Python</li><li>httpx</li><li>BeautifulSoup</li><li>openpyxl</li></ul>
+          <a class="case-link demo-link" href="https://github.com/leontjev-ivan/parser-excel">Код на GitHub</a>
         </div>
         <figure class="pr-fig">
           <div class="shot"><img src="img/parser-console.webp" width="982" height="789" alt="Консоль парсера после прогона" loading="lazy"></div>
