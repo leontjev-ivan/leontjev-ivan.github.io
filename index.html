@@ -22,7 +22,7 @@
 <link rel="preload" href="fonts/golos-text-cyrillic-0.woff2" as="font" type="font/woff2" crossorigin>
 <script>
   // Reveal animations exist only with JS and without reduced motion, so the page is fully visible otherwise.
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window && !navigator.webdriver) {
     document.documentElement.classList.add("js-anim");
   }
 </script>
@@ -138,11 +138,24 @@
   .collage-box { container-type: inline-size; width: min(100%, 1120px); margin: 52px auto 0; }
   .collage { position: relative; height: 56cqw; }
   .dev { position: absolute; }
-  .laptop { left: 25cqw; width: 50cqw; top: 2cqw; }
-  .lid { background: #141215; border: 1.1cqw solid #2c272e; border-bottom-width: 1.5cqw; border-radius: 1.4cqw 1.4cqw 0 0; overflow: hidden; box-shadow: 0 0 0 1px #4d4550, 0 28px 60px rgba(12, 9, 12, .55); }
-  .lid img { width: 100%; aspect-ratio: 1140 / 725; object-fit: cover; object-position: left top; }
-  .base { position: relative; height: 1.8cqw; margin: 0 -5cqw; background: linear-gradient(#5a515d, #2c272e); border-radius: 0 0 1.6cqw 1.6cqw; }
-  .base::before { content: ""; position: absolute; left: 50%; top: 0; width: 10cqw; height: .7cqw; transform: translateX(-50%); background: #231f24; border-radius: 0 0 .8cqw .8cqw; }
+  .laptop { left: 28cqw; width: 44cqw; top: 2cqw; container-type: inline-size; }
+  .lid { position: relative; container-type: inline-size; padding: 2.4cqw 2.4cqw 3.2cqw; overflow: hidden; background: #0b0a0c; border-radius: 3cqw 3cqw .9cqw .9cqw; box-shadow: inset 0 0 0 1px #24212a, 0 0 0 .45cqw #3a3440, 0 0 0 calc(.45cqw + 1px) #625a68, 0 3cqw 6cqw rgba(12, 9, 12, .5); }
+  .lid::before { content: ""; position: absolute; top: .8cqw; left: 50%; width: .9cqw; height: .9cqw; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 35% 35%, #51606f, #121519 70%); box-shadow: 0 0 0 1px #1d1b21; }
+  .lid .chat { border-radius: .5cqw; }
+  .chat { display: flex; flex-direction: column; aspect-ratio: 1140 / 725; overflow: hidden; text-align: left; font: 400 2.95cqw/1.38 var(--ff); color: #ececec; background: #0f0f0f; }
+  .ch-head { display: flex; align-items: center; gap: 2cqw; padding: 1.5cqw 2.6cqw; background: #212121; border-bottom: 1px solid #0a0a0a; }
+  .ch-ava { display: grid; place-items: center; flex: none; width: 5.6cqw; height: 5.6cqw; border-radius: 50%; font-weight: 600; font-size: 2.6cqw; color: #fff; background: linear-gradient(#f6a04d, #e8783a); }
+  .ch-head b { display: block; font-size: 2.35cqw; font-weight: 600; line-height: 1.25; }
+  .ch-head small { display: block; font-size: 2.1cqw; color: #aaaaaa; }
+  .ch-msgs { display: flex; flex-direction: column; gap: 2cqw; padding: 3cqw 2.8cqw; }
+  .ch-q, .ch-a { text-wrap: pretty; max-width: 86%; margin: 0; padding: 1.4cqw 2cqw 1.1cqw; border-radius: 2cqw; }
+  .ch-q { align-self: flex-end; color: #fff; background: #8774e1; }
+  .ch-a { align-self: flex-start; background: #212121; }
+  .ch-a b { display: block; margin-top: 1.4cqw; font-weight: 600; }
+  .chat time { display: block; margin-top: .2cqw; text-align: right; font-size: 1.9cqw; color: rgba(255, 255, 255, .55); }
+  .base { position: relative; height: 2.4cqw; margin: 0 -3cqw; border-radius: .35cqw .35cqw 2.6cqw 2.6cqw / .35cqw .35cqw 1.5cqw 1.5cqw; background: linear-gradient(180deg, #a29aa8 0, #7a727f 16%, #544c59 55%, #2f2a34 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 1.4cqw 2.6cqw rgba(8, 6, 9, .55); }
+  .base::before { content: ""; position: absolute; left: 50%; top: 0; width: 15cqw; height: 1.05cqw; transform: translateX(-50%); border-radius: 0 0 1.3cqw 1.3cqw; background: linear-gradient(180deg, #2a252e, #4b4451); box-shadow: inset 0 1px 1px rgba(0, 0, 0, .45); }
+  .base::after { content: ""; position: absolute; left: 6%; right: 6%; top: 100%; height: 2.6cqw; background: radial-gradient(ellipse at 50% 0, rgba(0, 0, 0, .5), transparent 70%); pointer-events: none; }
   .phone { background: #141215; border-radius: 34px; padding: 9px; box-shadow: 0 0 0 1px #4d4550, inset 0 0 0 2px #2c272e, 0 28px 60px rgba(12, 9, 12, .45); }
   .phone .scr { position: relative; overflow: hidden; border-radius: 26px; aspect-ratio: 1 / 2; background: var(--g1); }
   .phone .scr.ma { aspect-ratio: 780 / 1688; }
@@ -294,11 +307,10 @@
   .case-link { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 10px; font-weight: 600; color: var(--fg); text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 4px; }
   .case-link::after { content: " →"; }
   .more-h { margin: 70px 0 26px; text-align: center; font: 600 24px/1.3 var(--ff); }
-  .more { columns: 2; column-gap: 48px; max-width: 1100px; margin: 0 auto; padding: 0; list-style: none; }
-  .more li { position: relative; break-inside: avoid; padding: 0 0 14px 22px; font-size: 16px; color: var(--muted); }
+  .more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; max-width: 1100px; margin: 0 auto; padding: 0; list-style: none; }
+  .more li { position: relative; min-width: 0; padding: 0 0 14px 22px; font-size: 16px; color: var(--muted); }
   .more li::before { content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 9px; background: var(--or); }
   .more b { font-weight: 600; color: var(--fg); }
-  .lid img.fit { object-fit: contain; object-position: center top; background: #0e1621; }
   #other-demo .cases:has(.bot-try[open]) { align-items: start; }
   .case-shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .case-foot .demo-link { margin: 0 0 10px; }
@@ -365,6 +377,19 @@
     .ma-ph .phone { width: 200px; }
     .ma-ph.main .phone { width: 250px; }
   }
+  @media (max-width: 920px) {
+    .collage { height: auto; }
+    .collage .phone { display: none; }
+    .laptop { position: relative; left: auto; top: auto; width: min(100%, 620px); margin: 0 auto; }
+    .chat { aspect-ratio: auto; font-size: 14px; }
+    .ch-head { gap: 12px; padding: 10px 16px; }
+    .ch-ava { width: 36px; height: 36px; font-size: 16px; }
+    .ch-head b { font-size: 14px; }
+    .ch-head small, .chat time { font-size: 12px; }
+    .ch-msgs { gap: 12px; padding: 16px 16px 20px; }
+    .ch-q, .ch-a { padding: 9px 12px 7px; border-radius: 12px; }
+    .ch-a b { margin-top: 8px; }
+  }
   @media (max-width: 760px) {
     :root { --hh: 58px; }
     body { font-size: 16px; }
@@ -390,14 +415,9 @@
     .btns { flex-direction: column; align-items: stretch; max-width: 340px; margin: 28px auto 0; }
     .ridges { height: 170px; }
     .collage-box { margin-top: 44px; }
-    .collage { height: 84cqw; }
-    .laptop { left: 6cqw; width: 88cqw; top: 2cqw; }
-    .collage .phone { width: 33cqw; }
-    .ph-l { left: 0; }
-    .ph-r { right: 0; }
     .pin { font-size: 12px; padding: 6px 10px; letter-spacing: .12em; bottom: calc(100% + 9px); }
     .svc-grid { grid-template-columns: 1fr; }
-    .more { columns: 1; }
+    .more { grid-template-columns: minmax(0, 1fr); }
     .rag-shots { grid-template-columns: 1fr; gap: 16px; }
     .bot-grid { grid-template-columns: 1fr; gap: 40px; }
     .bot-win, .bot-info, .bot-shot { grid-column: auto; grid-row: auto; }
@@ -507,16 +527,22 @@
       <div class="collage">
         <figure class="dev laptop">
           <a class="pin" href="#demo" style="--pc: var(--yl)">RAG-бот</a>
-          <div class="lid"><img class="fit" src="img/rag-chat-1.webp" width="757" height="561" alt="RAG-бот отвечает по документам компании со ссылкой на источник"></div>
+          <div class="lid"><div class="chat" role="img" aria-label="RAG-бот отвечает по документам компании со ссылками на источники">
+            <div class="ch-head"><span class="ch-ava" aria-hidden="true">П</span><span><b>ПарПомол — RAG демо</b><small>бот</small></span></div>
+            <div class="ch-msgs">
+              <p class="ch-q">Сколько стоит аренда кофемашины на&nbsp;тарифе&nbsp;«Офис»?<time>14:51</time></p>
+              <p class="ch-a">Стоимость аренды кофемашины на тарифе «Офис» составляет 7&nbsp;900&nbsp;₽ в месяц [1]. Минимальный срок аренды на этом тарифе — 12 месяцев [1].<b>Источники:</b>1. Прайс-лист, раздел «Тарифы аренды» (похожесть&nbsp;0.75)<time>14:51</time></p>
+            </div>
+          </div></div>
           <div class="base"></div>
         </figure>
         <figure class="dev phone ph-l">
           <a class="pin" href="#bot">Бот</a>
-          <div class="scr"><img src="img/bot-booking.webp" width="1134" height="2274" alt="Бот записи: заявка принята"></div>
+          <div class="scr"><img src="img/bot-booking-520.webp" srcset="img/bot-booking-260.webp 260w, img/bot-booking-520.webp 520w, img/bot-booking-780.webp 780w" sizes="(min-width: 1184px) 251px, calc(22.4vw - 14px)" width="1134" height="2274" alt="Бот записи: заявка принята"></div>
         </figure>
         <figure class="dev phone ph-r">
           <a class="pin" href="#miniapp" style="--pc: #a283f0">Mini App</a>
-          <div class="scr ma"><img src="img/miniapp-catalog-light.webp" width="1170" height="2532" alt="Mini App: каталог в светлой теме"></div>
+          <div class="scr ma"><img src="img/miniapp-catalog-light-520.webp" srcset="img/miniapp-catalog-light-260.webp 260w, img/miniapp-catalog-light-520.webp 520w, img/miniapp-catalog-light-780.webp 780w" sizes="(min-width: 1184px) 251px, calc(22.4vw - 14px)" width="1170" height="2532" alt="Mini App: каталог в светлой теме"></div>
         </figure>
       </div>
     </div>
@@ -696,7 +722,7 @@
 
     <div class="cases">
       <article class="case rv" id="miniapp" style="--d:0; --ac: var(--vi)">
-        <div class="case-art case-shot"><img src="img/miniapp-catalog-light.webp" alt="Mini App: каталог в светлой теме Telegram" loading="lazy"></div>
+        <div class="case-art case-shot"><img src="img/miniapp-catalog-light-520.webp" srcset="img/miniapp-catalog-light-260.webp 260w, img/miniapp-catalog-light-520.webp 520w, img/miniapp-catalog-light-780.webp 780w, img/miniapp-catalog-light.webp 1170w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(50vw - 45px), 383px" alt="Mini App: каталог в светлой теме Telegram" loading="lazy"></div>
         <div class="case-body">
           <p class="case-tag">Mini App · Vue 3</p>
           <h3>Каталог с корзиной в Telegram</h3>
@@ -707,7 +733,7 @@
       </article>
 
       <article class="case rv" id="bot" style="--d:1; --ac: var(--or)">
-        <div class="case-art case-shot"><img src="img/bot-booking.webp" alt="Бот записи: заявка принята" loading="lazy"></div>
+        <div class="case-art case-shot"><img src="img/bot-booking-520.webp" srcset="img/bot-booking-260.webp 260w, img/bot-booking-520.webp 520w, img/bot-booking-780.webp 780w, img/bot-booking.webp 1134w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(50vw - 45px), 383px" alt="Бот записи: заявка принята" loading="lazy"></div>
         <div class="case-body">
           <p class="case-tag">Бот · aiogram 3</p>
           <h3>Бот записи для барбершопа</h3>
@@ -940,7 +966,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px 8% 0px" });
     document.querySelectorAll(".rv, .plate, .route").forEach(function (el) { io.observe(el); });
   }
 
