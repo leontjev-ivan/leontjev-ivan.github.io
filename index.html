@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Иван Леонтьев — ИИ-разработчик / Python: Telegram-боты, Mini App, бэкенд</title>
-<meta name="description" content="ИИ-разработчик на Python: Telegram-боты, Mini App, бэкенд на FastAPI и ИИ-ассистенты для бизнеса. Демо, кейсы с цифрами, контакты.">
+<title>Иван Леонтьев — ИИ-разработчик: LLM-агенты, Claude Code</title>
+<meta name="description" content="ИИ-разработчик: LLM-агенты и сервисы на LLM, разработка через Claude Code с проверкой на боевых данных. Кейсы с цифрами и демо с кодом.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="Иван Леонтьев — ИИ-разработчик / Python">
-<meta property="og:description" content="ИИ-разработчик / Python: Telegram-боты, Mini App и бэкенд на FastAPI. Демо и кейсы с цифрами.">
+<meta property="og:title" content="Иван Леонтьев — ИИ-разработчик">
+<meta property="og:description" content="LLM-агенты в продакшене, разработка через Claude Code. Кейсы с цифрами и демо с кодом.">
 <meta property="og:url" content="https://leontjev-ivan.github.io/">
 <meta property="og:image" content="https://leontjev-ivan.github.io/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Иван Леонтьев — ИИ-разработчик / Python">
+<meta property="og:image:alt" content="Иван Леонтьев — ИИ-разработчик">
 <meta name="theme-color" content="#1d1a1e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%231d1a1e%27/%3E%3Cpath d=%27M16 6l11 20H5z%27 fill=%27%23f4842b%27/%3E%3C/svg%3E">
 <meta name="twitter:card" content="summary_large_image">
@@ -293,6 +293,21 @@
   .case-res { margin: -6px 0 18px; padding-left: 12px; border-left: 3px solid var(--or); font-weight: 600; font-size: 16px; color: var(--fg); }
   .case-link { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 10px; font-weight: 600; color: var(--fg); text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 4px; }
   .case-link::after { content: " →"; }
+  .more-h { margin: 70px 0 26px; text-align: center; font: 600 24px/1.3 var(--ff); }
+  .more { columns: 2; column-gap: 48px; max-width: 1100px; margin: 0 auto; padding: 0; list-style: none; }
+  .more li { position: relative; break-inside: avoid; padding: 0 0 14px 22px; font-size: 16px; color: var(--muted); }
+  .more li::before { content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 9px; background: var(--or); }
+  .more b { font-weight: 600; color: var(--fg); }
+  .lid img.fit { object-fit: contain; object-position: center top; background: #0e1621; }
+  #other-demo .cases:has(.bot-try[open]) { align-items: start; }
+  .case-shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .case-foot .demo-link { margin: 0 0 10px; }
+  .bot-try { margin: -4px 0 18px; }
+  .bot-try summary { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; cursor: pointer; font: 500 13px var(--fh); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); background: transparent; border: 2px solid var(--ink); }
+  .bot-try[open] summary { background: var(--ink); color: var(--p1); }
+  .bot-try-note { margin: 12px 0; font-size: 14px; color: var(--muted); }
+  .bot-try .bot-win::before { display: none; }
+  .bot-try .botdemo-msgs { height: 360px; }
   .demo-link { margin: 18px 0 0; }
   .demo-note { margin-top: 8px; font-size: 15px; line-height: 1.45; color: var(--muted); max-width: 46ch; }
   .s-dark .case-st { background: transparent; box-shadow: inset 0 0 0 1px var(--yl); }
@@ -382,6 +397,7 @@
     .ph-r { right: 0; }
     .pin { font-size: 12px; padding: 6px 10px; letter-spacing: .12em; bottom: calc(100% + 9px); }
     .svc-grid { grid-template-columns: 1fr; }
+    .more { columns: 1; }
     .rag-shots { grid-template-columns: 1fr; gap: 16px; }
     .bot-grid { grid-template-columns: 1fr; gap: 40px; }
     .bot-win, .bot-info, .bot-shot { grid-column: auto; grid-row: auto; }
@@ -440,9 +456,8 @@
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><i></i>Меню</button>
     <div class="top-end">
     <nav class="nav" id="nav" aria-label="Разделы">
-      <a href="#services">Что делаю</a>
-      <a href="#demo">Демо</a>
       <a href="#cases">Кейсы</a>
+      <a href="#demo">Демо</a>
       <a href="#process">Как работаю</a>
       <a href="#contacts">Контакты</a>
       <a class="nav-ct" href="https://t.me/Neorlav">Telegram @Neorlav</a>
@@ -478,20 +493,21 @@
   <div class="wrap hero-in">
     <div class="plate hero-plate">
       <span class="tri"></span>
-      <h1>ИИ-разработчик&nbsp;/ Python</h1>
+      <h1>ИИ-разработчик</h1>
       <span class="rule"></span>
-      <p class="sub">Открыт к работе · удалённо</p>
+      <p class="sub">LLM-агенты · Claude&nbsp;Code · удалённо</p>
+      <p class="note">Делаю ИИ-агентов и сервисы на LLM и довожу их до продакшена. Код пишу через Claude&nbsp;Code, качество проверяю на боевых данных.</p>
     </div>
     <div class="btns">
       <a class="btn btn-main" href="https://t.me/Neorlav">Написать в Telegram</a>
-      <a class="btn btn-ghost" href="#demo">Смотреть демо</a>
+      <a class="btn btn-ghost" href="#cases">Смотреть кейсы</a>
     </div>
 
     <div class="collage-box rv" style="--d:3">
       <div class="collage">
         <figure class="dev laptop">
-          <a class="pin" href="#parser" style="--pc: var(--yl)">Парсер</a>
-          <div class="lid"><img src="img/parser-table.webp" width="1008" height="641" alt="Таблица Excel с книгами, собранная парсером"></div>
+          <a class="pin" href="#demo" style="--pc: var(--yl)">RAG-бот</a>
+          <div class="lid"><img class="fit" src="img/rag-chat-1.webp" width="757" height="561" alt="RAG-бот отвечает по документам компании со ссылкой на источник"></div>
           <div class="base"></div>
         </figure>
         <figure class="dev phone ph-l">
@@ -507,47 +523,136 @@
   </div>
 </section>
 
-<!-- ========== SERVICES ========== -->
-<section class="sec s-light topo" id="services" data-nav="services">
+<!-- ========== CASES ========== -->
+<section class="sec s-light topo" id="cases" data-nav="cases">
   <div class="wrap">
     <div class="plate">
       <span class="tri"></span>
-      <h2>Что делаю</h2>
+      <h2>Кейсы</h2>
       <span class="rule"></span>
-      <p class="sub">Направления</p>
+      <p class="sub">Проекты в команде</p>
+      <p class="note">Работа в команде разработки на заказ, декабрь&nbsp;2025&nbsp;- ноябрь&nbsp;2026. Названия клиентов не указываю.</p>
     </div>
-    <div class="svc-grid">
-      <article class="svc rv" style="--d:0; --ac: var(--yl)">
-        <div class="svc-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="24" height="17" rx="2"/><path d="M4 10h24M12 10v11M20 10v11M16 24v5M13 26.5l3 3 3-3"/></svg></div>
-        <h3>ИИ в продуктах</h3>
-        <p>ИИ-ассистенты и автоответчики: проверка ответов по базе фактов, выбор модели по цене, подсказки оператору.</p>
+
+    <div class="cases">
+      <article class="case rv" style="--d:0; --ac: var(--or)">
+        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
+          <rect x="26" y="32" width="118" height="28" rx="14" fill="#fbf3e4"/>
+          <rect x="58" y="70" width="86" height="28" rx="14" fill="#231e21" opacity=".82"/>
+          <rect x="26" y="108" width="104" height="28" rx="14" fill="#fbf3e4"/>
+          <rect x="176" y="30" width="118" height="112" rx="10" fill="#fbf3e4"/>
+          <path d="M176 40a10 10 0 0 1 10-10h98a10 10 0 0 1 10 10v14H176Z" fill="#231e21"/>
+          <g fill="#231e21" opacity=".16">
+            <rect x="188" y="64" width="18" height="16" rx="3"/><rect x="214" y="64" width="18" height="16" rx="3"/><rect x="240" y="64" width="18" height="16" rx="3"/><rect x="266" y="64" width="18" height="16" rx="3"/>
+            <rect x="188" y="88" width="18" height="16" rx="3"/><rect x="214" y="88" width="18" height="16" rx="3"/><rect x="266" y="88" width="18" height="16" rx="3"/>
+            <rect x="188" y="112" width="18" height="16" rx="3"/><rect x="214" y="112" width="18" height="16" rx="3"/><rect x="240" y="112" width="18" height="16" rx="3"/><rect x="266" y="112" width="18" height="16" rx="3"/>
+          </g>
+          <rect x="240" y="88" width="18" height="16" rx="3" fill="#533654"/>
+        </svg></div>
+        <div class="case-body">
+          <p class="case-tag">ИИ-агент · бронирование</p>
+          <h3>ИИ-агент бронирования для глэмпинг-курорта</h3>
+          <p class="case-txt">Основной разработчик. Ведёт гостей в Telegram, WhatsApp, Instagram и MAX и сам оформляет бронь с предоплатой 50%. Разобрал 995 боевых диалогов и перестроил агента: действия выбирает код, ответы с ценами и датами сверяются с базой фактов.</p>
+          <p class="case-res">410 ходов на боевых переписках без сбоев, 9 броней сошлись до рубля, расход на модели почти вдвое меньше</p>
+          <div class="case-foot"><span class="case-st">В продакшене</span><ul class="chips"><li>pydantic-ai</li><li>OpenRouter</li><li>FastAPI</li></ul></div>
+        </div>
       </article>
-      <article class="svc rv" style="--d:1; --ac: var(--or)">
-        <div class="svc-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="22" height="16" rx="4"/><path d="M16 4.5V9M11.5 15.5v2M20.5 15.5v2M12.5 21h7"/><circle cx="16" cy="4" r="1.4" fill="currentColor"/></svg></div>
-        <h3>Боты</h3>
-        <p>Telegram-боты на aiogram 3: запись и заявки, оплата, рассылки, админка, выгрузка в Excel и Google-таблицы.</p>
+
+      <article class="case rv" style="--d:1; --ac: var(--rd)">
+        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
+          <rect x="30" y="28" width="128" height="26" rx="13" fill="#fbf3e4"/>
+          <rect x="162" y="62" width="128" height="26" rx="13" fill="#231e21" opacity=".82"/>
+          <rect x="30" y="96" width="108" height="26" rx="13" fill="#fbf3e4"/>
+          <rect x="182" y="130" width="72" height="26" rx="13" fill="#231e21" opacity=".82"/>
+          <path d="M146 109h62" stroke="#fbf3e4" stroke-width="3" stroke-dasharray="5 6"/>
+          <circle cx="274" cy="128" r="9" fill="#fbf3e4"/>
+          <path d="M258 156a16 14 0 0 1 32 0Z" fill="#fbf3e4"/>
+        </svg></div>
+        <div class="case-body">
+          <p class="case-tag">ИИ-агент · поддержка</p>
+          <h3>ИИ-агент поддержки для сети магазинов франшизы</h3>
+          <p class="case-txt">Отвечает сотрудникам в рабочих группах по базе знаний из 354 записей: привратник решает, отвечать ли, ответчик пишет, проверяющий сверяет. Остальное передаёт оператору. Разработал первую версию и сопровождал в продакшене.</p>
+          <p class="case-res">Проверка ответа 5,52 → ~1,3&nbsp;₽, в 4,3 раза дешевле</p>
+          <div class="case-foot"><span class="case-st">В продакшене</span><ul class="chips"><li>aiogram 3</li><li>OpenAI SDK</li><li>OpenRouter</li></ul></div>
+        </div>
       </article>
-      <article class="svc rv" style="--d:2; --ac: var(--vi)">
-        <div class="svc-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3"/><rect x="12.5" y="8" width="3" height="3"/><rect x="16.5" y="8" width="3" height="3"/><rect x="12.5" y="13.5" width="3" height="3"/><rect x="16.5" y="13.5" width="3" height="3"/><path d="M14 24.5h4"/></svg></div>
-        <h3>Mini App</h3>
-        <p>Приложения внутри Telegram на Vue 3: каталог, корзина, формы, кабинет специалиста.</p>
+
+      <article class="case rv" style="--d:2; --ac: var(--bl)">
+        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
+          <rect x="40" y="58" width="92" height="62" rx="6" fill="#fbf3e4" opacity=".4" transform="rotate(-7 86 89)"/>
+          <rect x="30" y="50" width="96" height="64" rx="6" fill="#fbf3e4"/>
+          <path d="M34 56l44 32 44-32" fill="none" stroke="#2f89e6" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M144 86h32M166 74l12 12-12 12" fill="none" stroke="#fbf3e4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="194" y="36" width="100" height="100" rx="6" fill="#fbf3e4"/>
+          <path d="M194 42a6 6 0 0 1 6-6h88a6 6 0 0 1 6 6v16H194Z" fill="#231e21"/>
+          <path d="M194 78h100M194 98h100M194 118h100M234 58v78" stroke="#2f89e6" stroke-opacity=".45" stroke-width="2"/>
+          <rect x="242" y="84" width="44" height="8" rx="2" fill="#f4842b"/>
+        </svg></div>
+        <div class="case-body">
+          <p class="case-tag">LLM-конвейер · веб-сервис</p>
+          <h3>Перевод писем с китайскими поставщиками</h3>
+          <p class="case-txt">Основной разработчик. Анализ письма, термины из глоссария на 178 позиций, перевод и ревью; текст на картинках читает vision-модель. Веб-панель на Vue&nbsp;3.</p>
+          <p class="case-res">126 переводов в месяц, 14,6&nbsp;с на письмо, около $0,001 за перевод</p>
+          <div class="case-foot"><span class="case-st">В продакшене</span><ul class="chips"><li>LiteLLM</li><li>Langfuse</li><li>FastAPI</li></ul></div>
+        </div>
       </article>
-      <article class="svc rv" style="--d:3; --ac: var(--gr)">
-        <div class="svc-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="2"/><path d="M11 5v22M3 11h8M3 17h8M16 22v-4M20 22v-8M24 22v-6"/></svg></div>
-        <h3>Веб-сервисы с панелью</h3>
-        <p>Сервисы на FastAPI с веб-панелью на Vue 3: обработка писем поставщиков с ИИ-переводом, данные фондового рынка с подпиской и оплатой.</p>
+
+      <article class="case rv" style="--d:0; --ac: var(--gr)">
+        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
+          <rect x="30" y="50" width="64" height="74" rx="6" fill="#fbf3e4"/>
+          <path d="M42 66v42M48 66v42M56 66v42M60 66v42M68 66v42M74 66v42M82 66v42" stroke="#231e21" stroke-width="3"/>
+          <rect x="116" y="16" width="88" height="142" rx="12" fill="#fbf3e4"/>
+          <circle cx="160" cy="70" r="26" fill="none" stroke="#231e21" stroke-opacity=".14" stroke-width="9"/>
+          <circle cx="160" cy="70" r="26" fill="none" stroke="#4f9a63" stroke-width="9" stroke-dasharray="112 164" stroke-linecap="round" transform="rotate(-90 160 70)"/>
+          <rect x="132" y="112" width="56" height="7" rx="3.5" fill="#231e21" opacity=".7"/>
+          <rect x="132" y="126" width="38" height="7" rx="3.5" fill="#231e21" opacity=".3"/>
+          <rect x="232" y="46" width="60" height="82" rx="6" fill="#fbf3e4"/>
+          <rect x="250" y="39" width="24" height="13" rx="3" fill="#231e21"/>
+          <path d="M244 70h36M244 86h36M244 102h24" stroke="#231e21" stroke-opacity=".4" stroke-width="4" stroke-linecap="round"/>
+        </svg></div>
+        <div class="case-body">
+          <p class="case-tag">Mini App · vision-модель</p>
+          <h3>Mini App учёта питания для врача-эндокринолога</h3>
+          <p class="case-txt">Основной разработчик: MVP за один день, справочник на 154 позиции, дневник пациента и кабинет врача. Снимок этикетки модель переводит в JSON, цифры подтверждает пользователь.</p>
+          <p class="case-res">Этикетка распознаётся за 1,8&nbsp;с, около $0,0005 за снимок</p>
+          <div class="case-foot"><span class="case-st">Работает у заказчика</span><ul class="chips"><li>Vue 3</li><li>FastAPI</li><li>Gemini</li></ul></div>
+        </div>
       </article>
-      <article class="svc rv" style="--d:4; --ac: var(--rd)">
-        <div class="svc-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="26" height="22" rx="2"/><path d="M3 11h26M9.5 23a6.5 6.5 0 0 1 13 0M16 23l3.5-4"/></svg></div>
-        <h3>Сайты</h3>
-        <p>Ускорение сайтов на WordPress: PageSpeed на телефоне 65 → 81, главное фото за 2-3,5 с вместо 21. Лёгкие сайты-визитки, как этот.</p>
-      </article>
-      <article class="svc rv" style="--d:5; --ac: var(--bl)">
-        <div class="svc-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="16" r="4"/><circle cx="24" cy="7.5" r="4"/><circle cx="24" cy="24.5" r="4"/><path d="M11.6 14.2l8.8-4.6M11.6 17.8l8.8 4.6"/></svg></div>
-        <h3>Бэкенд и интеграции</h3>
-        <p>FastAPI и SQLAlchemy, AmoCRM, платёжные системы, парсеры, Docker на сервере.</p>
+
+      <article class="case rv" style="--d:1; --ac: #533654">
+        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
+          <rect x="22" y="30" width="62" height="26" rx="6" fill="#fbf3e4"/><rect x="22" y="73" width="62" height="26" rx="6" fill="#fbf3e4"/><rect x="22" y="116" width="62" height="26" rx="6" fill="#fbf3e4"/>
+          <path d="M84 43L130 86M84 86h46M84 129L130 86" stroke="#fbf3e4" stroke-width="3" stroke-dasharray="5 5"/>
+          <rect x="130" y="56" width="62" height="60" rx="10" fill="#231e21"/>
+          <path d="M147 86h28M161 72v28" stroke="#ebb92b" stroke-width="5" stroke-linecap="round"/>
+          <path d="M192 86L238 43M192 86h46M192 86L238 129" stroke="#fbf3e4" stroke-width="3"/>
+          <circle cx="258" cy="43" r="18" fill="#fbf3e4"/><circle cx="258" cy="86" r="18" fill="#fbf3e4"/><circle cx="258" cy="129" r="18" fill="#fbf3e4" opacity=".55"/>
+          <path d="M250 129h16" stroke="#e04a2c" stroke-width="4" stroke-linecap="round"/>
+        </svg></div>
+        <div class="case-body">
+          <p class="case-tag">ИИ-администратор · каналы</p>
+          <h3>Конструктор ИИ-администраторов для малого бизнеса</h3>
+          <p class="case-txt">Владелец вносит услуги и цены и получает бота для своих клиентов в Telegram, WhatsApp, Instagram, ВК, MAX и на Авито. Модель понимает вопрос и пишет ответ, а цены и расчёты подставляет код, поэтому цифры не выдумываются.</p>
+          <p class="case-res">1060 автотестов, набор из 29 ситуаций на настоящей модели</p>
+          <div class="case-foot"><span class="case-st">Демо-стенд</span><ul class="chips"><li>FastAPI</li><li>PostgreSQL</li><li>Alembic</li></ul></div>
+        </div>
       </article>
     </div>
+
+    <h3 class="more-h">Ещё проекты за год</h3>
+    <ul class="more">
+      <li><b>Свои инструменты для агентов:</b> несколько сессий Claude&nbsp;Code параллельно, независимое ревью свежим агентом, MCP-серверы</li>
+      <li><b>Шлюз к ИИ-провайдерам:</b> один ключ для всех моделей, ротация ключей, переключение при сбое, учёт расходов</li>
+      <li><b>Осмотр контейнеров по фото:</b> vision-модель ищет повреждения, код ставит коды и считает смету (прототип)</li>
+      <li><b>Решатель учебных задач:</b> решает одна модель, проверяет другая, учёт стоимости каждого шага (прототип)</li>
+      <li><b>Бот-визажист:</b> vision-модель сравнивает фото с референсом и даёт пошаговый план макияжа (прототип)</li>
+      <li><b>Подготовка к защите работы:</b> 20 вопросов комиссии по загруженному документу (прототип)</li>
+      <li><b>Репосты между Telegram-каналами:</b> модель проверяет и переписывает посты, убирает дубли</li>
+      <li><b>Видимость сайта в ИИ-поисковиках:</b> проверка на LangGraph и конвейер SEO-статей с одобрением человеком (закрытая бета)</li>
+      <li><b>Трекер задач команды в Telegram:</b> голос и текст превращаются в действия через LLM</li>
+      <li><b>Агрегатор данных фондового рынка:</b> подписка и оплата ЮKassa, основной разработчик</li>
+      <li><b>Telegram-боты для бизнеса:</b> AmoCRM, Google Таблицы, боты смен и сдачи съёмок для фотографов</li>
+    </ul>
   </div>
 </section>
 
@@ -578,293 +683,67 @@
   </div>
 </section>
 
-<!-- ========== DEMO: MINI APP ========== -->
-<section class="sec s-light topo" id="miniapp" data-nav="demo">
+<!-- ========== DEMO: OTHER ========== -->
+<section class="sec s-light topo" id="other-demo" data-nav="demo">
   <div class="wrap">
     <div class="plate">
       <span class="tri"></span>
-      <h2>Демо: Mini App</h2>
+      <h2>Прочие демо</h2>
       <span class="rule"></span>
-      <p class="sub">Каталог в Telegram</p>
-      <p class="note">Учебный проект: магазин и товары вымышленные.</p>
-    </div>
-
-    <div class="ma-switch rv" role="group" aria-label="Тема Telegram">
-      <button type="button" class="on" data-theme="light" aria-pressed="true">Светлая тема</button>
-      <button type="button" data-theme="dark" aria-pressed="false">Тёмная тема</button>
-    </div>
-
-    <div class="ma-row">
-      <svg class="ma-mount" viewBox="0 0 1200 420" aria-hidden="true">
-        <path fill="#e8d7b9" d="M0 420L250 170L500 420Z"/>
-        <path fill="#e8d7b9" d="M700 420L950 170L1200 420Z"/>
-        <path fill="#dcc19a" d="M260 420L600 60L940 420Z"/>
-      </svg>
-      <figure class="ma-ph rv" style="--d:1">
-        <div class="phone"><div class="scr ma"><img src="img/miniapp-product.webp" width="600" height="1298" alt="Mini App: карточка товара" loading="lazy"></div></div>
-        <figcaption class="cap">Карточка товара</figcaption>
-      </figure>
-      <figure class="ma-ph main rv">
-        <div class="phone"><div class="scr ma dual">
-          <img src="img/miniapp-catalog-light.webp" width="1170" height="2532" alt="Mini App: каталог, светлая тема" data-ma-theme="light" loading="lazy">
-          <img class="off" src="img/miniapp-catalog-dark.webp" width="1170" height="2532" alt="Mini App: каталог, тёмная тема" data-ma-theme="dark" loading="lazy">
-        </div></div>
-        <figcaption class="cap">Каталог</figcaption>
-      </figure>
-      <figure class="ma-ph rv" style="--d:2">
-        <div class="phone"><div class="scr ma"><img src="img/miniapp-done.webp" width="600" height="1298" alt="Mini App: заявка принята" loading="lazy"></div></div>
-        <figcaption class="cap">Заявка принята</figcaption>
-      </figure>
-    </div>
-
-    <div class="ma-info rv">
-      <div>
-        <h3 class="demo-h">Каталог с корзиной и заявкой</h3>
-        <ul class="chips" style="--ac: var(--vi)"><li>Vue 3</li><li>FastAPI</li><li>Telegram WebApp</li></ul>
-        <a class="case-link demo-link" href="https://github.com/leontjev-ivan/miniapp-katalog">Код на GitHub</a>
-        <p class="demo-note">Живой страницы нет: каталог и заявки отдаёт свой сервер на FastAPI, запуск в Docker по инструкции в репозитории.</p>
-      </div>
-      <ul class="tri-list demo-lines">
-        <li><b>Задача.</b> Магазину нужен каталог с заказом прямо в Telegram, без отдельного сайта.</li>
-        <li><b>Сделано.</b> Категории, поиск, карточка товара, корзина и заявка с проверкой полей, светлая и тёмная тема Telegram; сервер на FastAPI проверяет подпись данных от Telegram.</li>
-        <li><b>Результат.</b> 58 тестов сервера и 43 теста интерфейса, вёрстка без горизонтальной прокрутки на ширине 360-430 px.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ========== DEMO: BOT ========== -->
-<section class="sec s-dark topo-d" id="bot" data-nav="demo">
-  <div class="wrap">
-    <div class="plate">
-      <span class="tri"></span>
-      <h2>Демо: бот</h2>
-      <span class="rule"></span>
-      <p class="sub">Попробуйте сами</p>
-      <p class="note">Учебный проект: барбершоп вымышленный, ответы взяты из настоящего демо-бота, сценарий сокращён.</p>
-    </div>
-    <div class="bot-grid">
-      <div class="bot-info rv">
-        <p class="live">Сценарий демо-бота</p>
-        <h3 class="demo-h">Бот записи для барбершопа</h3>
-        <ul class="tri-list demo-lines">
-          <li><b>Задача.</b> Барбершопу нужна запись клиентов в Telegram на свободное время, а владельцу — список заявок.</li>
-          <li><b>Сделано.</b> Услуги и цены, частые вопросы, запись только на свободное время, уведомление владельцу с кнопками подтверждения и отмены, выгрузка в Excel.</li>
-          <li><b>Результат.</b> 97 тестов без сети и токена; телефон принимается в разных форматах и приводится к одному виду.</li>
-        </ul>
-        <ul class="chips"><li>aiogram 3</li><li>SQLite</li><li>Docker</li><li>pytest</li></ul>
-        <a class="case-link demo-link" href="https://github.com/leontjev-ivan/bot-vizitka">Код на GitHub</a>
-      </div>
-
-      <div class="bot-win rv" style="--d:1">
-        <div class="bw-head"><span class="bw-ava" aria-hidden="true">РК</span><span><b>Барбершоп «Ровный край»</b><small>бот</small></span></div>
-        <div class="botdemo" data-bot>
-          <div class="botdemo-msgs" data-bot-msgs aria-live="polite"></div>
-          <div class="botdemo-kb" data-bot-kb></div>
-        </div>
-      </div>
-
-      <figure class="bot-shot rv" style="--d:2">
-        <div class="phone"><div class="scr"><img src="img/bot-admin.webp" width="460" height="918" alt="Бот у владельца: уведомление о новой заявке" loading="lazy"></div></div>
-        <figcaption class="cap">Так видит владелец</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ========== DEMO: PARSER ========== -->
-<section class="sec s-light topo" id="parser" data-nav="demo">
-  <div class="wrap">
-    <div class="plate">
-      <span class="tri"></span>
-      <h2>Демо: парсер</h2>
-      <span class="rule"></span>
-      <p class="sub">1000 книг в Excel</p>
-      <p class="note">Учебный проект: books.toscrape.com — учебный магазин для тренировки парсинга.</p>
-    </div>
-
-    <div class="pr-grid">
-      <div class="pr-table rv">
-        <div class="tools">
-          <input class="inp f-q" id="books-q" type="search" placeholder="Поиск по названию" aria-label="Поиск по названию" autocomplete="off">
-          <select class="sel f-c" id="books-cat" aria-label="Категория"><option value="">Все категории</option></select>
-        </div>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead>
-              <tr>
-                <th scope="col"><span>Название</span></th>
-                <th scope="col" class="c-cat"><span>Категория</span></th>
-                <th scope="col" class="num" data-key="2"><button type="button">Цена, £<i class="sort-i"></i></button></th>
-                <th scope="col" data-key="3"><button type="button">Рейтинг<i class="sort-i"></i></button></th>
-              </tr>
-            </thead>
-            <tbody id="books-body"></tbody>
-          </table>
-        </div>
-        <p class="tbl-foot"><span id="books-count" aria-live="polite">Показано 10 из 10</span><span>Сортировка: щёлкните <b>Цена</b> или <b>Рейтинг</b></span></p>
-      </div>
-
-      <div class="pr-side rv" style="--d:1">
-        <div class="pr-head">
-          <p class="live">Выгрузка, 10 строк</p>
-          <h3 class="demo-h">Парсер каталога в Excel</h3>
-          <ul class="tri-list demo-lines">
-            <li><b>Задача.</b> Типовой заказ: собрать каталог сайта в таблицу.</li>
-            <li><b>Сделано.</b> Парсер обходит 50 страниц и собирает 1000 книг с ценой, рейтингом и наличием в Excel с листом «Сводка», держит паузы между запросами.</li>
-            <li><b>Результат.</b> Полный проход за 8 мин 47 с без единого повтора, 95 тестов.</li>
-          </ul>
-          <ul class="chips" style="--ac: var(--yl)"><li>Python</li><li>httpx</li><li>BeautifulSoup</li><li>openpyxl</li></ul>
-          <a class="case-link demo-link" href="https://github.com/leontjev-ivan/parser-excel">Код на GitHub</a>
-        </div>
-        <figure class="pr-fig">
-          <div class="shot"><img src="img/parser-summary.webp" width="665" height="488" alt="Лист «Сводка» в Excel с закреплённой шапкой: категории, число книг и средняя цена" loading="lazy"></div>
-          <figcaption class="cap">Лист «Сводка»</figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CASES ========== -->
-<section class="sec s-dark topo-d" id="cases" data-nav="cases">
-  <div class="wrap">
-    <div class="plate">
-      <span class="tri"></span>
-      <h2>Кейсы</h2>
-      <span class="rule"></span>
-      <p class="sub">Проекты в команде</p>
-      <p class="note">Работа в команде разработки на заказ, декабрь&nbsp;2025&nbsp;- ноябрь&nbsp;2026. Названия клиентов не указываю.</p>
+      <p class="sub">Без ИИ, код на GitHub</p>
+      <p class="note">Учебные проекты: магазин и барбершоп вымышленные, книги с учебного сайта для парсинга.</p>
     </div>
 
     <div class="cases">
-      <article class="case rv" style="--d:0; --ac: var(--or)">
-        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
-          <rect x="26" y="32" width="118" height="28" rx="14" fill="#fbf3e4"/>
-          <rect x="58" y="70" width="86" height="28" rx="14" fill="#231e21" opacity=".82"/>
-          <rect x="26" y="108" width="104" height="28" rx="14" fill="#fbf3e4"/>
-          <rect x="176" y="30" width="118" height="112" rx="10" fill="#fbf3e4"/>
-          <path d="M176 40a10 10 0 0 1 10-10h98a10 10 0 0 1 10 10v14H176Z" fill="#231e21"/>
-          <g fill="#231e21" opacity=".16">
-            <rect x="188" y="64" width="18" height="16" rx="3"/><rect x="214" y="64" width="18" height="16" rx="3"/><rect x="240" y="64" width="18" height="16" rx="3"/><rect x="266" y="64" width="18" height="16" rx="3"/>
-            <rect x="188" y="88" width="18" height="16" rx="3"/><rect x="214" y="88" width="18" height="16" rx="3"/><rect x="266" y="88" width="18" height="16" rx="3"/>
-            <rect x="188" y="112" width="18" height="16" rx="3"/><rect x="214" y="112" width="18" height="16" rx="3"/><rect x="240" y="112" width="18" height="16" rx="3"/><rect x="266" y="112" width="18" height="16" rx="3"/>
-          </g>
-          <rect x="240" y="88" width="18" height="16" rx="3" fill="#533654"/>
-        </svg></div>
+      <article class="case rv" id="miniapp" style="--d:0; --ac: var(--vi)">
+        <div class="case-art case-shot"><img src="img/miniapp-catalog-light.webp" alt="Mini App: каталог в светлой теме Telegram" loading="lazy"></div>
         <div class="case-body">
-          <p class="case-tag">ИИ-ассистент · бот</p>
-          <h3>ИИ-администратор бронирования для базы отдыха</h3>
-          <p class="case-txt">Основной разработчик: пересобрал архитектуру и развивал проект. Автобронирование, дожим клиентов, проверка ответов модели по базе фактов, поиск ближайших свободных дат.</p>
-          
-          <div class="case-foot"><span class="case-st">В продакшене</span><ul class="chips"><li>aiogram 3</li><li>FastAPI</li><li>pydantic-ai</li></ul></div>
+          <p class="case-tag">Mini App · Vue 3</p>
+          <h3>Каталог с корзиной в Telegram</h3>
+          <p class="case-txt">Категории, поиск, карточка товара, корзина и заявка с проверкой полей; сервер на FastAPI проверяет подпись данных от Telegram.</p>
+          <p class="case-res">Светлая и тёмная тема Telegram, без прокрутки вбок на 360-430&nbsp;px</p>
+          <div class="case-foot"><a class="case-link demo-link" href="https://github.com/leontjev-ivan/miniapp-katalog">Код на GitHub</a><ul class="chips"><li>Vue 3</li><li>FastAPI</li></ul></div>
         </div>
       </article>
 
-      <article class="case rv" style="--d:1; --ac: var(--rd)">
-        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
-          <rect x="30" y="28" width="128" height="26" rx="13" fill="#fbf3e4"/>
-          <rect x="162" y="62" width="128" height="26" rx="13" fill="#231e21" opacity=".82"/>
-          <rect x="30" y="96" width="108" height="26" rx="13" fill="#fbf3e4"/>
-          <rect x="182" y="130" width="72" height="26" rx="13" fill="#231e21" opacity=".82"/>
-          <path d="M146 109h62" stroke="#fbf3e4" stroke-width="3" stroke-dasharray="5 6"/>
-          <circle cx="274" cy="128" r="9" fill="#fbf3e4"/>
-          <path d="M258 156a16 14 0 0 1 32 0Z" fill="#fbf3e4"/>
-        </svg></div>
+      <article class="case rv" id="bot" style="--d:1; --ac: var(--or)">
+        <div class="case-art case-shot"><img src="img/bot-booking.webp" alt="Бот записи: заявка принята" loading="lazy"></div>
         <div class="case-body">
-          <p class="case-tag">Бот · ИИ</p>
-          <h3>Автоответчик для рабочих чатов сети франчайзи</h3>
-          <p class="case-txt">Сделал первую версию из трёх агентов и сравнил модели, потом исправлял и поддерживал проект, добавил подсказку оператору.</p>
-          <p class="case-res">Проверка одного ответа: 5,52 → ~1,3&nbsp;₽, в 4 раза дешевле</p>
-          <div class="case-foot"><span class="case-st">В продакшене</span><ul class="chips"><li>aiogram 3</li><li>OpenAI SDK</li><li>aiosqlite</li></ul></div>
+          <p class="case-tag">Бот · aiogram 3</p>
+          <h3>Бот записи для барбершопа</h3>
+          <p class="case-txt">Услуги и цены, частые вопросы, запись только на свободное время, уведомление владельцу с кнопками подтверждения и отмены, выгрузка в Excel.</p>
+          <p class="case-res">Телефон в разных форматах приводится к одному виду</p>
+          <details class="bot-try">
+            <summary>Демо по сценарию</summary>
+            <p class="bot-try-note">Ответы взяты из настоящего демо-бота, сценарий сокращён.</p>
+          <div class="bot-win s-dark">
+            <div class="bw-head"><span class="bw-ava" aria-hidden="true">РК</span><span><b>Барбершоп «Ровный край»</b><small>бот</small></span></div>
+            <div class="botdemo" data-bot>
+              <div class="botdemo-msgs" data-bot-msgs aria-live="polite"></div>
+              <div class="botdemo-kb" data-bot-kb></div>
+            </div>
+          </div>
+          </details>
+          <div class="case-foot"><a class="case-link demo-link" href="https://github.com/leontjev-ivan/bot-vizitka">Код на GitHub</a><ul class="chips"><li>aiogram 3</li><li>SQLite</li></ul></div>
         </div>
       </article>
 
-      <article class="case rv" style="--d:2; --ac: var(--bl)">
-        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
-          <rect x="40" y="58" width="92" height="62" rx="6" fill="#fbf3e4" opacity=".4" transform="rotate(-7 86 89)"/>
-          <rect x="30" y="50" width="96" height="64" rx="6" fill="#fbf3e4"/>
-          <path d="M34 56l44 32 44-32" fill="none" stroke="#2f89e6" stroke-width="4" stroke-linejoin="round"/>
-          <path d="M144 86h32M166 74l12 12-12 12" fill="none" stroke="#fbf3e4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="194" y="36" width="100" height="100" rx="6" fill="#fbf3e4"/>
-          <path d="M194 42a6 6 0 0 1 6-6h88a6 6 0 0 1 6 6v16H194Z" fill="#231e21"/>
-          <path d="M194 78h100M194 98h100M194 118h100M234 58v78" stroke="#2f89e6" stroke-opacity=".45" stroke-width="2"/>
-          <rect x="242" y="84" width="44" height="8" rx="2" fill="#f4842b"/>
-        </svg></div>
+      <article class="case rv" id="parser" style="--d:2; --ac: var(--yl)">
+        <div class="case-art case-shot"><img src="img/parser-summary.webp" alt="Лист «Сводка» в Excel: категории, число книг и средняя цена" loading="lazy"></div>
         <div class="case-body">
-          <p class="case-tag">Веб-сервис · ИИ</p>
-          <h3>ИИ-переводчик писем с поставщиками</h3>
-          <p class="case-txt">Основной разработчик: написал ядро, веб-панель на Vue 3 и REST API, маршрутизацию писем, работу с двумя почтами, рейтинги, справочник клиентов.</p>
-          
-          <div class="case-foot"><span class="case-st">В продакшене</span><ul class="chips"><li>FastAPI</li><li>Vue 3</li><li>LiteLLM</li></ul></div>
+          <p class="case-tag">Парсер · Python</p>
+          <h3>Парсер каталога в Excel</h3>
+          <p class="case-txt">Обходит 50 страниц и собирает 1000 книг с ценой, рейтингом и наличием в Excel с листом «Сводка», держит паузы между запросами.</p>
+          <p class="case-res">Полный проход за 8&nbsp;мин 47&nbsp;с без единого повтора</p>
+          <div class="case-foot"><a class="case-link demo-link" href="https://github.com/leontjev-ivan/parser-excel">Код на GitHub</a><ul class="chips"><li>httpx</li><li>openpyxl</li></ul></div>
         </div>
       </article>
-
-      <article class="case rv" style="--d:0; --ac: var(--gr)">
-        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
-          <rect x="30" y="50" width="64" height="74" rx="6" fill="#fbf3e4"/>
-          <path d="M42 66v42M48 66v42M56 66v42M60 66v42M68 66v42M74 66v42M82 66v42" stroke="#231e21" stroke-width="3"/>
-          <rect x="116" y="16" width="88" height="142" rx="12" fill="#fbf3e4"/>
-          <circle cx="160" cy="70" r="26" fill="none" stroke="#231e21" stroke-opacity=".14" stroke-width="9"/>
-          <circle cx="160" cy="70" r="26" fill="none" stroke="#4f9a63" stroke-width="9" stroke-dasharray="112 164" stroke-linecap="round" transform="rotate(-90 160 70)"/>
-          <rect x="132" y="112" width="56" height="7" rx="3.5" fill="#231e21" opacity=".7"/>
-          <rect x="132" y="126" width="38" height="7" rx="3.5" fill="#231e21" opacity=".3"/>
-          <rect x="232" y="46" width="60" height="82" rx="6" fill="#fbf3e4"/>
-          <rect x="250" y="39" width="24" height="13" rx="3" fill="#231e21"/>
-          <path d="M244 70h36M244 86h36M244 102h24" stroke="#231e21" stroke-opacity=".4" stroke-width="4" stroke-linecap="round"/>
-        </svg></div>
-        <div class="case-body">
-          <p class="case-tag">Mini App · бот</p>
-          <h3>Mini App учёта питания по методике врача</h3>
-          <p class="case-txt">Основной разработчик: MVP за один день вместе с ИИ-агентом, затем распознавание этикетки по фото, справочник на 154 позиции и кабинет врача.</p>
-          
-          <div class="case-foot"><span class="case-st">Работает у заказчика</span><ul class="chips"><li>Vue 3</li><li>FastAPI</li><li>aiogram 3</li></ul></div>
-        </div>
-      </article>
-
-      <article class="case rv" style="--d:1; --ac: var(--yl)">
-        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
-          <rect x="34" y="28" width="252" height="116" rx="8" fill="#fbf3e4"/>
-          <path d="M54 46v80h212" fill="none" stroke="#231e21" stroke-opacity=".3" stroke-width="3"/>
-          <g fill="#231e21" opacity=".18"><rect x="74" y="100" width="18" height="26"/><rect x="104" y="88" width="18" height="38"/><rect x="134" y="104" width="18" height="22"/><rect x="164" y="80" width="18" height="46"/><rect x="194" y="70" width="18" height="56"/><rect x="224" y="84" width="18" height="42"/></g>
-          <path d="M64 106L100 78L140 92L178 60L214 70L250 44" fill="none" stroke="#4f9a63" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="250" cy="44" r="7" fill="#4f9a63"/>
-        </svg></div>
-        <div class="case-body">
-          <p class="case-tag">Веб-сервис · подписка</p>
-          <h3>Агрегатор данных фондового рынка с подпиской</h3>
-          <p class="case-txt">Основной разработчик: демо на данных MOEX, парсеры, рейтинги и скоринг риска, портфель, пробная подписка.</p>
-          <p class="case-res">Оплата ЮKassa с чеком по 54-ФЗ включена боевым платежом</p>
-          <div class="case-foot"><span class="case-st">В продакшене</span><ul class="chips"><li>FastAPI</li><li>Vue 3</li><li>APScheduler</li></ul></div>
-        </div>
-      </article>
-
-      <article class="case rv" style="--d:2; --ac: #533654">
-        <div class="case-art"><svg viewBox="0 0 320 172" aria-hidden="true">
-          <rect x="22" y="30" width="62" height="26" rx="6" fill="#fbf3e4"/><rect x="22" y="73" width="62" height="26" rx="6" fill="#fbf3e4"/><rect x="22" y="116" width="62" height="26" rx="6" fill="#fbf3e4"/>
-          <path d="M84 43L130 86M84 86h46M84 129L130 86" stroke="#fbf3e4" stroke-width="3" stroke-dasharray="5 5"/>
-          <rect x="130" y="56" width="62" height="60" rx="10" fill="#231e21"/>
-          <path d="M147 86h28M161 72v28" stroke="#ebb92b" stroke-width="5" stroke-linecap="round"/>
-          <path d="M192 86L238 43M192 86h46M192 86L238 129" stroke="#fbf3e4" stroke-width="3"/>
-          <circle cx="258" cy="43" r="18" fill="#fbf3e4"/><circle cx="258" cy="86" r="18" fill="#fbf3e4"/><circle cx="258" cy="129" r="18" fill="#fbf3e4" opacity=".55"/>
-          <path d="M250 129h16" stroke="#e04a2c" stroke-width="4" stroke-linecap="round"/>
-        </svg></div>
-        <div class="case-body">
-          <p class="case-tag">Бэкенд · ИИ</p>
-          <h3>Шлюз к ИИ-провайдерам для команды</h3>
-          <p class="case-txt">Один ключ и один OpenAI-совместимый адрес для всех провайдеров: ротация ключей, переключение при сбое, учёт расходов.</p>
-          <div class="case-foot"><ul class="chips"><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li></ul></div>
-        </div>
-      </article>
-
-
-
     </div>
   </div>
 </section>
 
 <!-- ========== PROCESS ========== -->
-<section class="sec s-light topo" id="process" data-nav="process">
+<section class="sec s-dark topo-d" id="process" data-nav="process">
   <div class="wrap">
     <div class="plate">
       <span class="tri"></span>
@@ -873,22 +752,22 @@
       <p class="sub">Пять шагов</p>
     </div>
     <ol class="route">
-      <li class="stop rv" style="--d:1"><span class="mk"><b>1</b></span><h3>Задача</h3><p>Разбираю ТЗ, уточняю детали.</p></li>
-      <li class="stop rv" style="--d:2"><span class="mk"><b>2</b></span><h3>План</h3><p>Разбиваю работу на шаги.</p></li>
-      <li class="stop rv" style="--d:3"><span class="mk"><b>3</b></span><h3>Код</h3><p>Пишу сам и с ИИ-агентами Claude Code.</p></li>
-      <li class="stop rv" style="--d:4"><span class="mk"><b>4</b></span><h3>Проверка</h3><p>Тесты и ревью кода.</p></li>
+      <li class="stop rv" style="--d:1"><span class="mk"><b>1</b></span><h3>Задача</h3><p>Разбираю ТЗ, договариваюсь о критериях приёмки.</p></li>
+      <li class="stop rv" style="--d:2"><span class="mk"><b>2</b></span><h3>План</h3><p>Разбиваю работу на задачи для агентов.</p></li>
+      <li class="stop rv" style="--d:3"><span class="mk"><b>3</b></span><h3>Код</h3><p>Пишут агенты Claude&nbsp;Code по моему плану, дифф читаю сам.</p></li>
+      <li class="stop rv" style="--d:4"><span class="mk"><b>4</b></span><h3>Проверка</h3><p>Тесты, ревью диффа, второй агент без контекста, боевые данные.</p></li>
       <li class="stop rv" style="--d:5"><span class="mk"><b>5</b></span><h3>Выкатка</h3><p>Docker на сервере, резервная копия перед выкатом.</p></li>
     </ol>
   </div>
 </section>
-<section class="sec s-dark topo-d" id="contacts" data-nav="contacts">
+<section class="sec s-light topo" id="contacts" data-nav="contacts">
   <div class="wrap">
     <div class="plate">
       <span class="tri"></span>
       <h2>Контакты</h2>
       <span class="rule"></span>
       <p class="sub">Ульяновск · удалённо</p>
-      <p class="note">Ищу работу ИИ-разработчиком на Python. Пишите в Telegram или на почту.</p>
+      <p class="note">Ищу удалённую работу: AI-разработка, LLM-агенты, разработка с Claude&nbsp;Code, ИИ-автоматизация. Пишите в Telegram или на почту.</p>
     </div>
     <div class="ct-grid">
       <a class="ct rv" style="--d:0; --ac: var(--or)" href="https://t.me/Neorlav"><span>Telegram</span><b>@Neorlav</b></a>
@@ -904,7 +783,7 @@
   <span class="tri"></span>
   <p class="foot-name">Иван Леонтьев</p>
   <span class="rule"></span>
-  <p class="foot-sub">ИИ-разработчик / Python · 2026</p>
+  <p class="foot-sub">ИИ-разработчик · 2026</p>
 </footer>
 
 <script>
@@ -1109,93 +988,6 @@
     if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
   onScroll();
-
-  // Mini App: light / dark Telegram theme switch for the catalog screen.
-  var sw = document.querySelector(".ma-switch");
-  sw.addEventListener("click", function (e) {
-    var b = e.target.closest("button");
-    if (!b) return;
-    var theme = b.getAttribute("data-theme");
-    sw.querySelectorAll("button").forEach(function (x) {
-      var on = x === b;
-      x.classList.toggle("on", on);
-      x.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-    document.querySelectorAll("[data-ma-theme]").forEach(function (img) {
-      img.classList.toggle("off", img.getAttribute("data-ma-theme") !== theme);
-    });
-  });
-
-  // Parser demo: real rows from the books.xlsx export.
-  var BOOKS = [
-    ["A Light in the Attic", "Poetry", 51.77, 3],
-    ["Tipping the Velvet", "Historical Fiction", 53.74, 1],
-    ["Soumission", "Fiction", 50.10, 1],
-    ["Sharp Objects", "Mystery", 47.82, 4],
-    ["Sapiens: A Brief History of Humankind", "History", 54.23, 5],
-    ["The Requiem Red", "Young Adult", 22.65, 1],
-    ["The Dirty Little Secrets of Getting Your Dream Job", "Business", 33.34, 4],
-    ["Shakespeare's Sonnets", "Poetry", 20.66, 4],
-    ["Set Me Free", "Young Adult", 17.46, 5],
-    ["Rip it Up and Start Again", "Music", 35.02, 5]
-  ];
-  var RATE_COLORS = ["", "#f47a5c", "#f08a24", "#ebb92b", "#9ccc4a", "#4fb36b"];
-  var tbody = document.getElementById("books-body");
-  var q = document.getElementById("books-q");
-  var cat = document.getElementById("books-cat");
-  var count = document.getElementById("books-count");
-  var heads = document.querySelectorAll(".tbl th[data-key]");
-  var sort = { key: null, dir: -1 };
-
-  BOOKS.map(function (b) { return b[1]; })
-    .filter(function (c, i, all) { return all.indexOf(c) === i; })
-    .sort()
-    .forEach(function (c) {
-      var o = document.createElement("option");
-      o.value = c;
-      o.textContent = c;
-      cat.appendChild(o);
-    });
-
-  function esc(s) {
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  }
-
-  function rating(r) {
-    var pips = "";
-    for (var k = 1; k <= 5; k++) pips += '<i class="' + (k <= r ? "on" : "") + '"></i>';
-    return '<span class="rate" style="--c:' + RATE_COLORS[r] + '" aria-label="рейтинг ' + r + ' из 5">' + pips + "<b>" + r + "</b></span>";
-  }
-
-  function render() {
-    var text = q.value.trim().toLowerCase();
-    var c = cat.value;
-    var rows = BOOKS.filter(function (b) {
-      return (!c || b[1] === c) && (!text || b[0].toLowerCase().indexOf(text) !== -1);
-    });
-    if (sort.key !== null) {
-      rows.sort(function (a, b) { return (a[sort.key] - b[sort.key]) * sort.dir || a[0].localeCompare(b[0]); });
-    }
-    tbody.innerHTML = rows.length ? rows.map(function (b, i) {
-      return '<tr style="animation-delay:' + i * 30 + 'ms"><td>' + esc(b[0]) + '</td><td class="t-cat">' + esc(b[1]) +
-        '</td><td class="t-num">£' + b[2].toFixed(2) + "</td><td>" + rating(b[3]) + "</td></tr>";
-    }).join("") : '<tr class="empty"><td colspan="4">Ничего не нашлось: попробуйте другое название или категорию.</td></tr>';
-    count.textContent = "Показано " + rows.length + " из " + BOOKS.length;
-  }
-
-  heads.forEach(function (th) {
-    th.querySelector("button").addEventListener("click", function () {
-      var key = Number(th.getAttribute("data-key"));
-      sort.dir = sort.key === key ? -sort.dir : -1;
-      sort.key = key;
-      heads.forEach(function (h) { h.removeAttribute("aria-sort"); });
-      th.setAttribute("aria-sort", sort.dir === 1 ? "ascending" : "descending");
-      render();
-    });
-  });
-  q.addEventListener("input", render);
-  cat.addEventListener("change", render);
-  render();
 })();
 </script>
 <script>
